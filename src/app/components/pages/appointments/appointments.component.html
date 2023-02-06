@@ -1,0 +1,34 @@
+<div class="row d-flex justify-content-center align-items-center h-100 w-100">
+  <div class="row page-wrapper">
+    <div
+      class="col-12 col-lg-6 calendar-wrapper d-flex justify-content-center align-items-center"
+    >
+      <mat-calendar
+        class="calendar"
+        [(selected)]="selected"
+        #myDate
+        (selectedChange)="getTodaysAppointments()"
+      ></mat-calendar>
+    </div>
+    <div
+      class="col-12 col-lg-6 d-flex justify-content-center align-items-cente"
+    >
+      <div
+        class="row gap-3 d-flex justify-content-center align-items-center p-1"
+        #buttonWrapper
+      >
+        <div
+          class="col-lg-2 col-2 d-flex justify-content-center align-items-center"
+          *ngFor="let item of termini"
+        >
+          <button
+            class="btn btn-success btn-lg"
+            (click)="toggleAppointment($event.target)"
+          >
+            {{ item }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
